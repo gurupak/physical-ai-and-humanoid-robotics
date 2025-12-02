@@ -15,7 +15,10 @@
       "Bash(git remote add:*)",
       "Bash(git log:*)",
       "Bash(git branch:*)",
-      "mcp__github__create_pull_request"
+      "mcp__github__create_pull_request",
+      "mcp__github__merge_pull_request",
+      "mcp__github__pull_request_read",
+      "Bash(git pull:*)"
     ],
     "deny": [],
     "ask": []
