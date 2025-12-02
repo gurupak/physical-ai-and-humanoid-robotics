@@ -9,7 +9,16 @@
       "Bash(git commit -m \"$(cat <<''EOF''\nfeat(spec): initialize Docusaurus 3.9.x site specification with constitution v3.0.0\n\nAdd comprehensive specification for Docusaurus-based Physical AI & Humanoid Robotics\ntextbook platform with split architecture (GitHub Pages + Vercel API backend).\n\nConstitution Updates:\n- Upgraded to v3.0.0 (MAJOR) with split platform architecture\n- Book frontend: Docusaurus 3.x on GitHub Pages (static)\n- API backend: Next.js API routes on Vercel (serverless)\n- Added 16 core principles covering deployment, content quality, i18n, RAG chatbot\n\nFeature Specification (001-docusaurus-init):\n- 3 prioritized user stories (P1: Local Dev, P2: Deployment, P3: Public Access)\n- 25 functional requirements for Docusaurus initialization\n- 8 measurable success criteria (technology-agnostic)\n- 5 clarification decisions documented\n- Quality validation checklist (all checks passed)\n\nClarifications Resolved:\n- GitHub Actions: peaceiris/actions-gh-pages@v3\n- Notifications: GitHub default emails\n- README: Minimal commands only\n- CI Caching: Enabled with actions/cache\n- Intro.md: Basic structure with placeholder sections\n\nPrompt History:\n- PHR-0001: Specification creation\n- PHR-0002: Clarification session\n- PHR-0003: Constitution v3.0.0 update\n\nConfiguration:\n- Spec-Driven Development workflow templates\n- Slash commands for feature lifecycle\n- Agent instructions and principles\n\n🤖 Generated with Claude Code\nEOF\n)\")",
       "Bash(git config:*)",
       "mcp__github__get_me",
-      "mcp__github__create_repository"
+      "mcp__github__create_repository",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(git remote add:*)",
+      "Bash(git log:*)",
+      "Bash(git branch:*)",
+      "mcp__github__create_pull_request",
+      "mcp__github__merge_pull_request",
+      "mcp__github__pull_request_read",
+      "Bash(git pull:*)"
     ],
     "deny": [],
     "ask": []
