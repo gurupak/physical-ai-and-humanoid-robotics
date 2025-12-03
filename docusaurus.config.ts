@@ -10,15 +10,15 @@ const config: Config = {
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://irfan-ahmed-iai.github.io',
+  url: 'https://gurupak.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/hackathon-book/',
+  baseUrl: '/physical-ai-and-humanoid-robotics/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'irfan-ahmed-iai', // Usually your GitHub org/user name.
-  projectName: 'hackathon-book', // Usually your repo name.
+  organizationName: 'gurupak', // Usually your GitHub org/user name.
+  projectName: 'physical-ai-and-humanoid-robotics', // Usually your repo name.
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -41,7 +41,7 @@ const config: Config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/irfan-ahmed-iai/hackathon-book/tree/main/',
+            'https://github.com/gurupak/physical-ai-and-humanoid-robotics/tree/main/',
         },
         blog: false, // Disable blog plugin for docs-only mode
         theme: {
@@ -62,7 +62,7 @@ const config: Config = {
       },
       items: [
         {
-          href: 'https://github.com/irfan-ahmed-iai/hackathon-book',
+          href: 'https://github.com/gurupak/physical-ai-and-humanoid-robotics',
           label: 'GitHub',
           position: 'right',
         },
@@ -85,7 +85,7 @@ const config: Config = {
           items: [
             {
               label: 'GitHub',
-              href: 'https://github.com/irfan-ahmed-iai/hackathon-book',
+              href: 'https://github.com/gurupak/physical-ai-and-humanoid-robotics',
             },
           ],
         },
