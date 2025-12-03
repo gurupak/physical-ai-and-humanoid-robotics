@@ -18,7 +18,18 @@
       "mcp__github__create_pull_request",
       "mcp__github__merge_pull_request",
       "mcp__github__pull_request_read",
-      "Bash(git pull:*)"
+      "Bash(git pull:*)",
+      "Bash(.specify/scripts/bash/setup-plan.sh:*)",
+      "Bash(git checkout:*)",
+      "mcp__context7__resolve-library-id",
+      "mcp__context7__get-library-docs",
+      "Bash(.specify/scripts/bash/update-agent-context.sh:*)",
+      "Bash(.specify/scripts/bash/create-phr.sh:*)",
+      "Bash(.specify/scripts/bash/check-prerequisites.sh:*)",
+      "Bash(npm install)",
+      "Bash(npm start)",
+      "Bash(npm run build:*)",
+      "Bash(npm audit:*)"
     ],
     "deny": [],
     "ask": []

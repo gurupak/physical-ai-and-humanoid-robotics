@@ -208,3 +208,10 @@ Wait for consent; never auto-create ADRs. Group related decisions (stacks, authe
 
 ## Code Standards
 See `.specify/memory/constitution.md` for code quality, testing, performance, security, and architecture principles.
+
+## Active Technologies
+- Node.js 20.x, TypeScript 5+ + Docusaurus 3.9.2, @docusaurus/preset-classic 3.9.2, React 18.x (001-docusaurus-init)
+- N/A (static site) (001-docusaurus-init)
+
+## Recent Changes
+- 001-docusaurus-init: Added Node.js 20.x, TypeScript 5+ + Docusaurus 3.9.2, @docusaurus/preset-classic 3.9.2, React 18.x
