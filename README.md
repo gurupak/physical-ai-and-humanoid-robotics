@@ -13,8 +13,8 @@ A comprehensive guide to building intelligent robots using modern frameworks and
 Clone the repository and install dependencies:
 
 ```bash
-git clone https://github.com/irfan-ahmed-iai/hackathon-book.git
-cd hackathon-book
+git clone https://github.com/gurupak/physical-ai-and-humanoid-robotics.git
+cd physical-ai-and-humanoid-robotics
 npm install
 ```
 
@@ -28,7 +28,7 @@ npm start
 
 This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
 
-The site will be available at: `http://localhost:3000/hackathon-book/`
+The site will be available at: `http://localhost:3000/physical-ai-and-humanoid-robotics/`
 
 ## Build
 
@@ -44,7 +44,7 @@ This command generates static content into the `build` directory and can be serv
 
 This site is automatically deployed to GitHub Pages when changes are pushed to the `main` branch.
 
-View the live site at: `https://irfan-ahmed-iai.github.io/hackathon-book/`
+View the live site at: `https://gurupak.github.io/physical-ai-and-humanoid-robotics/`
 
 ## Additional Commands
 
