@@ -29,19 +29,19 @@ By the end of this module, you'll be able to:
 
 | Section | Title | Time Focus |
 |---------|-------|------------|
-| [01. Digital Twin Basics](./digital-twin-intro) | Understanding Simulation | 15 min |
-| [02. Physics with Gazebo](./gazebo-physics) | Robot Testing Environment | 30 min |
-| [03. Visual Simulation with Unity](./unity-rendering) | Photorealistic Environments | 25 min |
-| [04. Integration Best Practices](./integration) | Sim-to-Real Workflow | 20 min |
+| [01. Digital Twin Basics](../module-2-digital-twin/digital-twin-intro) | Understanding Simulation | 15 min |
+| [02. Physics with Gazebo](../module-2-digital-twin/gazebo-physics) | Robot Testing Environment | 30 min |
+| [03. Visual Simulation with Unity](../module-2-digital-twin/unity-rendering) | Photorealistic Environments | 25 min |
+| [04. Integration Best Practices](../module-2-digital-twin/integration) | Sim-to-Real Workflow | 20 min |
 
 **Total Reading Time**: 90 minutes
 
 ## Quick Start Guide
 
 New to simulation? Start here:
-1. Read [Digital Twin Basics](./digital-twin-intro) to understand when to use each platform
-2. Try the [Gazebo Physics Tutorial](./gazebo-physics) to build your first robot world
-3. Explore [Unity Setup](./unity-rendering) for visual AI training
+1. Read [Digital Twin Basics](../module-2-digital-twin/digital-twin-intro) to understand when to use each platform
+2. Try the [Gazebo Physics Tutorial](../module-2-digital-twin/gazebo-physics) to build your first robot world
+3. Explore [Unity Setup](../module-2-digital-twin/unity-rendering) for visual AI training
 
 ## System Requirements
 
@@ -55,4 +55,4 @@ New to simulation? Start here:
 - Unity 2021.3 LTS or newer
 - 4GB+ GPU memory for rendering
 
-**Ready to simulate?** Start with [01. Digital Twin Basics](./digital-twin-intro)!
+**Ready to simulate?** Start with [01. Digital Twin Basics](../module-2-digital-twin/digital-twin-intro)!

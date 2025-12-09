@@ -77,8 +77,8 @@ graph TD
 ## Next Steps
 
 **Your Simulation Journey:**
-1. **[Gazebo Physics Tutorial](./gazebo-physics)** - Build your first physics-based world
-2. **[Unity Visual Simulation](./unity-rendering)** - Create photorealistic environments
-3. **[Integration Guide](./integration)** - Connect simulation to your workflow
+1. **[Gazebo Physics Tutorial](../module-2-digital-twin/gazebo-physics)** - Build your first physics-based world
+2. **[Unity Visual Simulation](../module-2-digital-twin/unity-rendering)** - Create photorealistic environments
+3. **[Integration Guide](../module-2-digital-twin/integration)** - Connect simulation to your workflow
 
 **Pro Tip**: Start simple. A basic simulation that compiles and runs is better than a complex one full of errors. Build complexity gradually.
