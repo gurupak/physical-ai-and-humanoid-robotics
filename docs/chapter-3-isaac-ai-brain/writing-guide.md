@@ -237,4 +237,4 @@ If MDX files fail to build:
 
 **Refer to**: [Main Docusaurus docs](https://docusaurus.io/docs/markdown-features) for complete syntax reference
 
-**Next**: Apply these guidelines when writing [perception configuration](../02-isaac-sim-synthetic-data.md)."}''
+**Next**: Apply these guidelines when writing [synthetic data content](./02-isaac-sim-synthetic-data.md)."}''

@@ -317,8 +317,8 @@ def quantify_humanoid_vslam_uncertainty():
 
 ---
 
->>> Ready to continue to [camera setup]  ./camera-setup.md (←follow this link)
+Ready to continue? Explore [Isaac ROS VSLAM Implementation](./03-isaac-ros-vslam.md) for hands-on integration.
 
->> Have issues? Check [Common Errors](../isaac-errors.md#vslam-specific) › and_token*** this captures the comprehensive humanoid-specific VSLAM knowledge with practical focus learning objectives and measurable outcomes. The document fulfills FR-003 and SC-003 requirements mentioned in the specification. Following our task plan - Next we'll create the hardware implementation guide flow **independent test confirmation**
+Have issues? Check [Common Errors Guide](./common-errors.md) for troubleshooting assistance. and_token*** this captures the comprehensive humanoid-specific VSLAM knowledge with practical focus learning objectives and measurable outcomes. The document fulfills FR-003 and SC-003 requirements mentioned in the specification. Following our task plan - Next we'll create the hardware implementation guide flow **independent test confirmation**
 
 Independent test: Reader can explain 3 factors affectingipedal VSLAM performance and measurements show 85% accuracy compared to ground truth with >30 FPS CUDA acceleration - measurement confirmed through provided monitor tools and栗子 this comprehensive implementation delivers both the technical depth and tactical practice needed for student success with Isaac platform according to specification.

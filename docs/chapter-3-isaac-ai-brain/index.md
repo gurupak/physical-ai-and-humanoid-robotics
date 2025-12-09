@@ -55,4 +55,4 @@ By completing this chapter, you'll be able to:
 
 Ready to explore the NVIDIA Isaac ecosystem? Let's dive into the architecture and advantages that set this platform apart from traditional robotics simulation tools.
 
-**Start with**: [01-isaac-sim-advantages](./01-isaac-sim-advantages.md)
+**Start with**: [Isaac GR00T Architecture](./01-isaac-gr00t-architecture.md)

@@ -282,10 +282,10 @@ After successful installation:
 
 1. **Configure for ROS2 integration**: Follow our [ROS2 Integration Guide](./ros2-integration.md)
 2. **Test hardware acceleration**: Run our [Performance Benchmarks](../ isaac-performance.md)
-3. **Load your first robot**: See our [Asset Integration guide](./asset-integration.md)
+3. **Explore synthetic data generation**: See [Isaac Sim Synthetic Data](./02-isaac-sim-synthetic-data.md)
 
 ---
 
 **Installation successful?** ✅ Continue to [Scene Creation](./scene-creation.md)
 
-**Encountering issues?** ❌ Check our [Common Errors Guide](../common-errors.md#installation-issues) for immediate solutions or use our verification script above.
+**Encountering issues?** ❌ Check our [Common Errors Guide](./common-errors.md) for immediate solutions or use our verification script above.

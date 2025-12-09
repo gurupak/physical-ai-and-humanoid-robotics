@@ -125,7 +125,7 @@ fi
 echo "=========================="
 ```
 
-See also the [Hardware Requirements Dashboard](./hw-requirements.md) for system compatibility.
+
 
 ## System Compatibility Notes
 
@@ -157,6 +157,4 @@ See also the [Hardware Requirements Dashboard](./hw-requirements.md) for system 
 
 **All prerequisites met?** Proceed to [learning objectives](./learning-objectives.md)
 
-**Need hardware guidance?** See [Hardware Installation Guide](./hardware-setup.md)
-
-**System issues?** Check [Troubleshooting](./common-errors.md#prerequisites)
+**System issues?** Check [Common Errors Guide](./common-errors.md)

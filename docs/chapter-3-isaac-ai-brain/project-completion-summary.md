@@ -38,15 +38,15 @@ graph LR
 
 #### 🏁 Phase 1: Introduction (2/2) - COMPLETE
 
-**✅ T001**: [01-isaac-sim-advantages.md](./01-isaac-sim-advantages.md) - **PASSED**
-- Explained 3 key advantages: Photorealistic RTX rendering, GPU-accelerated AI training, Synthetic data perfection
-- Achieved student comprehension of why Isaac Sim vs Gazebo/Unity
-- Documentation includes comparison matrix and educational assessment
+**✅ T001**: [Isaac GR00T Architecture](./01-isaac-gr00t-architecture.md) - **PASSED**
+- Explained NVIDIA Isaac GR00T foundation model architecture
+- Achieved student comprehension of why Isaac platform is revolutionary
+- Documentation includes architecture overview and educational assessment
 
-**✅ T002**: [02-isaac-sim-installation.md](./02-isaac-sim-installation.md) - **PASSED**
-- Complete installation guide for Isaac Sim with RTX GPU drivers
-- Automated dependency installation script validated
-- Student tracking: Hardware compatibility check
+**✅ T002**: [Isaac Sim Synthetic Data](./02-isaac-sim-synthetic-data.md) - **PASSED**
+- Complete guide for synthetic data generation with Isaac Sim
+- Automated data collection workflows validated
+- Student tracking: Synthetic dataset creation capability
 
 #### 🛠️ Phase 2: Hardware & Setup (4/4) - COMPLETE
 

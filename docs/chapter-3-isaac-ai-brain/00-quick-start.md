@@ -118,4 +118,4 @@ Run: `bash verify_setup.sh`
 
 ---
 
-Ready? Continue to [full Chapter 3 tutorial](./chapter-3-isaac-ai-brain.md)
+Ready? Continue to [Chapter 3 Overview](./index.md)

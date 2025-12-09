@@ -239,6 +239,6 @@ npm run build:dev  # Shows detailed errors
 
 ---
 
-**Issue resolved?** Continue with [next section](./advanced-configuration.md)
+**Issue resolved?** Continue exploring [Chapter 3 content](./index.md)
 
 **New problem?** Report it with detailed system information and terminal output."}''

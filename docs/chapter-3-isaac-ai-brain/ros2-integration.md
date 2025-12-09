@@ -310,7 +310,7 @@ ros2 topic hz /left_camera/image_isaac
 After successful integration:
 
 1. [Configure Runtime Parameters](./runtime-configuration.md)
-2. [Set up Camera Calibration](./camera-setup.md)
-3. [Export Training Data](./dataset-export.md)
+2. [Explore Isaac ROS VSLAM](./03-isaac-ros-vslam.md)
+3. [Learn about Synthetic Data](./02-isaac-sim-synthetic-data.md)
 
 The bridge is now providing real-time camera feeds and robot state data that can be consumed by any ROS2 application, enabling seamless integration between Isaac Sim and your robotics stack.
