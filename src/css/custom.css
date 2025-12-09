@@ -28,3 +28,14 @@
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
+
+/* Hero banner dark mode support */
+:root {
+  --hero-bg-color: #0a2342;
+  --hero-text-color: #ffffff;
+}
+
+[data-theme='dark'] {
+  --hero-bg-color: #1a1a2e;
+  --hero-text-color: #f0f0f0;
+}
