@@ -1,0 +1,47 @@
+---
+id: intro
+title: Welcome to Physical AI & Humanoid Robotics
+sidebar_label: Introduction
+sidebar_position: 1
+---
+
+# Welcome
+
+This comprehensive guide explores the fascinating world of Physical AI and Humanoid Robotics, covering everything from fundamental concepts to advanced implementation techniques.
+
+Physical AI represents the convergence of artificial intelligence with physical robotics, enabling machines to perceive, learn, and interact with the real world in increasingly sophisticated ways. This textbook provides a structured approach to understanding and building intelligent robotic systems.
+
+## About
+
+This textbook is designed for students, researchers, and practitioners who want to:
+
+- Understand the fundamentals of physical AI and humanoid robotics
+- Learn practical implementation techniques using modern frameworks
+- Explore real-world applications and case studies
+- Build hands-on projects with cutting-edge technologies
+
+Content coming soon.
+
+## Getting Started
+
+To get the most out of this textbook, you should have:
+
+- Basic programming knowledge (Python, C++, or similar)
+- Understanding of fundamental mathematics (linear algebra, calculus)
+- Curiosity about robotics and artificial intelligence
+- Access to development tools and simulation environments
+
+Content coming soon.
+
+## Next Steps
+
+As you progress through this textbook, you'll explore topics including:
+
+- Robot Operating System (ROS 2) fundamentals
+- Computer vision and perception systems
+- Motion planning and control
+- Machine learning for robotics
+- Human-robot interaction
+- Advanced humanoid robot design
+
+Content coming soon.
