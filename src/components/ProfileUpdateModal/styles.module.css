@@ -1,0 +1,220 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    padding: 20px;
+}
+
+.modal {
+    background: var(--ifm-background-color);
+    border-radius: 12px;
+    max-width: 500px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="light"] .modal {
+    background: #ffffff;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="dark"] .modal {
+    background: #1b1b1d;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 24px 16px;
+    border-bottom: 1px solid var(--ifm-color-emphasis-200);
+}
+
+[data-theme="light"] .header {
+    border-bottom-color: #e2e8f0;
+}
+
+[data-theme="dark"] .header {
+    border-bottom-color: #3a3a3a;
+}
+
+.title {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0;
+    color: var(--ifm-font-color-base);
+}
+
+[data-theme="light"] .title {
+    color: #1a202c;
+}
+
+[data-theme="dark"] .title {
+    color: #f7fafc;
+}
+
+.closeButton {
+    background: transparent;
+    border: none;
+    padding: 4px;
+    cursor: pointer;
+    color: var(--ifm-color-emphasis-600);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.closeButton:hover {
+    background: var(--ifm-color-emphasis-200);
+    color: var(--ifm-font-color-base);
+}
+
+.form {
+    padding: 24px;
+}
+
+.formRow {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.formGroup {
+    margin-bottom: 20px;
+}
+
+.label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--ifm-font-color-base);
+}
+
+[data-theme="light"] .label {
+    color: #2d3748;
+}
+
+[data-theme="dark"] .label {
+    color: #e2e8f0;
+}
+
+.input,
+.select {
+    width: 100%;
+    padding: 10px 12px;
+    font-size: 14px;
+    border: 1px solid var(--ifm-color-emphasis-300);
+    border-radius: 6px;
+    background: var(--ifm-background-color);
+    color: var(--ifm-font-color-base);
+    transition: all 0.2s ease;
+}
+
+[data-theme="light"] .input,
+[data-theme="light"] .select {
+    background: #ffffff;
+    color: #1a202c;
+    border-color: #cbd5e0;
+}
+
+[data-theme="dark"] .input,
+[data-theme="dark"] .select {
+    background: #2d3748;
+    color: #f7fafc;
+    border-color: #4a5568;
+}
+
+.input:focus,
+.select:focus {
+    outline: none;
+    border-color: var(--ifm-color-primary);
+    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.1);
+}
+
+.select {
+    cursor: pointer;
+}
+
+.error {
+    padding: 12px;
+    background: rgba(220, 38, 38, 0.1);
+    border: 1px solid rgba(220, 38, 38, 0.3);
+    border-radius: 6px;
+    color: #dc2626;
+    font-size: 14px;
+    margin-bottom: 16px;
+}
+
+[data-theme="dark"] .error {
+    background: rgba(239, 68, 68, 0.15);
+    border-color: rgba(239, 68, 68, 0.3);
+    color: #f87171;
+}
+
+.footer {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+    margin-top: 24px;
+}
+
+.cancelButton,
+.submitButton {
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.cancelButton {
+    background: var(--ifm-color-emphasis-200);
+    color: var(--ifm-font-color-base);
+}
+
+.cancelButton:hover:not(:disabled) {
+    background: var(--ifm-color-emphasis-300);
+}
+
+.submitButton {
+    background: var(--ifm-color-primary);
+    color: white;
+}
+
+.submitButton:hover:not(:disabled) {
+    background: var(--ifm-color-primary-dark);
+}
+
+.cancelButton:disabled,
+.submitButton:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+@media (max-width: 640px) {
+    .formRow {
+        grid-template-columns: 1fr;
+    }
+
+    .modal {
+        margin: 0;
+        max-height: 100vh;
+        border-radius: 0;
+    }
+}

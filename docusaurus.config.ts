@@ -71,12 +71,16 @@ const config: Config = {
           sidebarId: "tutorialSidebar",
           position: "left",
           label: "Book",
+          customProps: {
+            requiresAuth: true,
+          },
         },
         {
           href: "https://github.com/gurupak/physical-ai-and-humanoid-robotics",
           label: "GitHub",
           position: "right",
         },
+        // Sign In button is handled by custom Navbar/Content component
       ],
     },
     footer: {

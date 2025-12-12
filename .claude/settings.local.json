@@ -55,7 +55,13 @@
       "SlashCommand(/sp.adr)",
       "SlashCommand(/sp.phr)",
       "Bash(wc -l:*)",
-      "Bash(find:*)"
+      "Bash(find:*)",
+      "Bash(oauth|OAuth\"\" specs/009-better-auth-implementation/tasks.md)",
+      "Bash(npm run start)",
+      "Bash(kill:*)",
+      "Bash(netstat:*)",
+      "Bash(findstr:*)",
+      "Bash(npx docusaurus:*)"
     ],
     "deny": [],
     "ask": []

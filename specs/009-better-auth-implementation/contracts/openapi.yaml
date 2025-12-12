@@ -1,0 +1,489 @@
+openapi: 3.0.3
+info:
+  title: Physical AI Textbook Auth API
+  description: Authentication and user management API for Physical AI textbook platform
+  version: 1.0.0
+  contact:
+    name: Physical AI Team
+    email: contact@physical-ai.com
+
+servers:
+  - url: https://huggingface.co/api
+    description: Production API server
+  - url: http://localhost:3000/api
+    description: Development API server
+
+paths:
+
+  # OAuth Authentication Endpoints
+  /auth/login/google:
+    get:
+      summary: Initiate Google OAuth login
+      operationId: loginGoogle
+      tags:
+        - Authentication
+      responses:
+        '302':
+          description: Redirect to Google OAuth consent page
+          headers:
+            Location:
+              schema:
+                type: string
+                example: https://accounts.google.com/oauth2/auth?...
+        '500':
+          $ref: '#/components/responses/ServerError'
+
+  /auth/login/github:
+    get:
+      summary: Initiate GitHub OAuth login
+      operationId: loginGitHub
+      tags:
+        - Authentication
+      responses:
+        '302':
+          description: Redirect to GitHub OAuth consent page
+        '500':
+          $ref: '#/components/responses/ServerError'
+
+  /auth/callback/{provider}:
+    get:
+      summary: OAuth callback endpoint
+      operationId: oauthCallback
+      tags:
+        - Authentication
+      parameters:
+        - name: provider
+          in: path
+          required: true
+          schema:
+            type: string
+            enum: [google, github]
+          description: OAuth provider name
+        - name: code
+          in: query
+          required: true
+          schema:
+            type: string
+          description: OAuth authorization code
+        - name: state
+          in: query
+          required: false
+          schema:
+            type: string
+          description: OAuth state parameter
+      responses:
+        '302':
+          description: Redirect back to frontend with session cookie
+          headers:
+            Set-Cookie:
+              $ref: '#/components/headers/SessionCookie'
+        '400':
+          description: Invalid callback parameters
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: OAuth authentication failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /auth/me:
+    get:
+      summary: Get current user profile
+      operationId: getCurrentUser
+      tags:
+        - User Management
+      security:
+        - SessionAuth: []
+      responses:
+        '200':
+          description: User profile data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '401':
+          description: Unauthenticated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /auth/onboard:
+    post:
+      summary: Complete user onboarding
+      operationId: completeOnboarding
+      tags:
+        - User Management
+      security:
+        - SessionAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OnboardingData'
+      responses:
+        '200':
+          description: Onboarding completed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /auth/profile:
+    patch:
+      summary: Update user profile
+      operationId: updateProfile
+      tags:
+        - User Management
+      security:
+        - SessionAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProfileUpdate'
+      responses:
+        '200':
+          description: Profile updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /auth/logout:
+    post:
+      summary: Logout current user
+      operationId: logout
+      tags:
+        - Authentication
+      security:
+        - SessionAuth: []
+      responses:
+        '200':
+          description: Successfully logged out
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Logged out successfully"
+          headers:
+            Set-Cookie:
+              $ref: '#/components/headers/ClearSession'
+
+  # Progress Tracking
+  /progress/{chapter_id}:
+    put:
+      summary: Update reading progress for a chapter
+      operationId: updateProgress
+      tags:
+        - Progress
+      security:
+        - SessionAuth: []
+      parameters:
+        - name: chapter_id
+          in: path
+          required: true
+          schema:
+            type: string
+            example: "chapter-1-introduction"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                completion_percentage:
+                  type: integer
+                  minimum: 0
+                  maximum: 100
+                  description: Reading completion percentage
+                last_read_position:
+                  type: string
+                  example: "#section-3-configuration"
+                  description: Last visited section URL fragment
+      responses:
+        '200':
+          description: Progress updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserProgress'
+        '401':
+          description: Unauthenticated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+    get:
+      summary: Get progress for a specific chapter
+      operationId: getProgress
+      tags:
+        - Progress
+      security:
+        - SessionAuth: []
+      parameters:
+        - name: chapter_id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Chapter progress data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserProgress'
+        '404':
+          description: Chapter not found or no progress
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /progress:
+    get:
+      summary: Get all chapter progress for current user
+      operationId: getAllProgress
+      tags:
+        - Progress
+      security:
+        - SessionAuth: []
+      responses:
+        '200':
+          description: List of all chapter progress
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  progress:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/UserProgress'
+        '401':
+          description: Unauthenticated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+components:
+  securitySchemes:
+    SessionAuth:
+      type: apiKey
+      in: cookie
+      name: better-auth.session
+      description: Session cookie for authenticated requests
+
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: Unique user identifier
+        email:
+          type: string
+          format: email
+          description: User's email address
+        name:
+          type: string
+          description: Display name
+        profile_image:
+          type: string
+          format: uri
+          description: Profile image URL
+        python_level:
+          type: string
+          enum: [beginner, intermediate, advanced]
+        ros_experience:
+          type: string
+          enum: [none, ros1, ros2]
+        hardware_access:
+          type: string
+          enum: [none, simulation, physical]
+        learning_goals:
+          type: string
+          enum: [career, student, hobbyist, research]
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+      required:
+        - id
+        - email
+        - created_at
+        - updated_at
+
+    OnboardingData:
+      type: object
+      properties:
+        python_level:
+          type: string
+          enum: [beginner, intermediate, advanced]
+        ros_experience:
+          type: string
+          enum: [none, ros1, ros2]
+        hardware_access:
+          type: string
+          enum: [none, simulation, physical]
+        learning_goals:
+          type: string
+          enum: [career, student, hobbyist, research]
+      required:
+        - python_level
+        - ros_experience
+        - hardware_access
+        - learning_goals
+
+    ProfileUpdate:
+      type: object
+      properties:
+        name:
+          type: string
+          minLength: 1
+          maxLength: 255
+        python_level:
+          type: string
+          enum: [beginner, intermediate, advanced]
+        ros_experience:
+          type: string
+          enum: [none, ros1, ros2]
+        hardware_access:
+          type: string
+          enum: [none, simulation, physical]
+        learning_goals:
+          type: string
+          enum: [career, student, hobbyist, research]
+
+    UserProgress:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        chapter_id:
+          type: string
+          description: Chapter identifier from Docusaurus
+        completion_percentage:
+          type: integer
+          minimum: 0
+          maximum: 100
+        last_read_position:
+          type: string
+          description: Last visited section URL fragment
+        updated_at:
+          type: string
+          format: date-time
+      required:
+        - id
+        - chapter_id
+        - completion_percentage
+
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+          description: Error type/classification
+        message:
+          type: string
+          description: Human-readable error message
+        code:
+          type: string
+          description: Machine-readable error code
+      required:
+        - error
+        - message
+
+  responses:
+    ServerError:
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+
+  headers:
+    SessionCookie:
+      description: |
+        Session cookie for authentication with httpOnly, secure, and sameSite='none' attributes.
+        Format: Set-Cookie: better-auth.session={session_token}; Domain=.vercel.app; HttpOnly; Secure; SameSite=None; Path=/; Max-Age=2592000;
+      schema:
+        type: string
+      example: "better-auth.session=eyJhbGc...; HttpOnly; Secure; SameSite=None; Path=/; Max-Age=2592000"
+
+    ClearSession:
+      description: Clears the session cookie by setting max-age to 0
+      schema:
+        type: string
+      example: "better-auth.session=; Max-Age=0; Path=/"
+
+## Rate Limiting
+
+All authentication endpoints are rate limited:
+- OAuth initiate: 10 requests per minute per IP
+- OAuth callback: 5 requests per minute per IP
+- Other auth endpoints: 20 requests per minute per session
+- Failed login attempts: 5 per 15 minutes per IP
+
+## Security Considerations
+
+1. **No password storage** - OAuth only authentication
+2. **Session tokens** - Secure, httpOnly cookies with CORS support
+3. **CSRF Protection** - Built into better-auth for OAuth flows
+4. **XSS Prevention** - All inputs validated with Zod schemas
+5. **Rate Limiting** - Redis-backed distributed limits
+6. **Secure Headers** - HSTS, no-sniff, frame-options set by Next.js
+7. **Token Encryption** - OAuth tokens encrypted with Fernet in database
+
+## Error Handling
+
+- 401 Unauthorized: Missing or invalid session cookie
+- 400 Bad Request: Validation errors with field details
+- 429 Too Many Requests: Rate limit exceeded with retry-after header
+- 500 Internal Server Error: Server issues logged, generic message to client
+
+## Testing Approach
+
+- Unit tests: Mock OAuth providers, test business logic
+- Integration tests: Full OAuth flow simulation
+- Contract tests: API schema validation
+- Security tests: Rate limiting, CORS, session handling
+
+## Monitoring
+
+- Auth success/failure rates
+- Session creation/destruction
+- Cross-origin errors
+- Rate limit triggers
+- OAuth provider availability
+
+This API design follows constitution requirements for split platform architecture while ensuring security, scalability, and compliance with authentication best practices.,
