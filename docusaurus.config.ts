@@ -19,7 +19,7 @@ const config: Config = {
   // If you aren't using GitHub pages, you don't need these.
   organizationName: "gurupak", // Usually your GitHub org/user name.
   projectName: "physical-ai-and-humanoid-robotics", // Usually your repo name.
-
+  githubHost: "github.com",
   onBrokenLinks: "warn",
   onBrokenMarkdownLinks: "warn",
 
