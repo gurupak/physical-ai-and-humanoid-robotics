@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkhackathon_book=self.webpackChunkhackathon_book||[]).push([[6366],{6366:(e,c,a)=>{a.d(c,{createArchitectureServices:()=>h.S});var h=a(8980);a(7960)}}]);
