@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkhackathon_book=self.webpackChunkhackathon_book||[]).push([[3490],{3490:(e,a,k)=>{k.d(a,{createInfoServices:()=>c.v});var c=k(1885);k(7960)}}]);
