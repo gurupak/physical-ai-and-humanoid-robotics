@@ -1,0 +1,156 @@
+.callout {
+  margin: 1.5rem 0;
+  padding: 1rem 1.25rem;
+  border-left: 4px solid;
+  border-radius: 4px;
+  background-color: var(--ifm-background-surface-color);
+}
+
+.calloutHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.calloutIcon {
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.calloutTitle {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.calloutContent {
+  line-height: 1.6;
+}
+
+.calloutContent > *:first-child {
+  margin-top: 0;
+}
+
+.calloutContent > *:last-child {
+  margin-bottom: 0;
+}
+
+/* Note variant (blue) */
+.note {
+  border-color: #3b82f6;
+  background-color: #eff6ff;
+}
+
+.note .calloutTitle {
+  color: #1e40af;
+}
+
+.note .calloutContent {
+  color: #1e3a8a;
+}
+
+/* Tip variant (green) */
+.tip {
+  border-color: #10b981;
+  background-color: #d1fae5;
+}
+
+.tip .calloutTitle {
+  color: #065f46;
+}
+
+.tip .calloutContent {
+  color: #064e3b;
+}
+
+/* Warning variant (orange/yellow) */
+.warning {
+  border-color: #f59e0b;
+  background-color: #fef3c7;
+}
+
+.warning .calloutTitle {
+  color: #92400e;
+}
+
+.warning .calloutContent {
+  color: #78350f;
+}
+
+/* Danger variant (red) */
+.danger {
+  border-color: #ef4444;
+  background-color: #fee2e2;
+}
+
+.danger .calloutTitle {
+  color: #991b1b;
+}
+
+.danger .calloutContent {
+  color: #7f1d1d;
+}
+
+/* Info variant (gray) */
+.info {
+  border-color: #6b7280;
+  background-color: #f3f4f6;
+}
+
+.info .calloutTitle {
+  color: #374151;
+}
+
+.info .calloutContent {
+  color: #1f2937;
+}
+
+/* Dark mode support */
+[data-theme='dark'] .callout {
+  background-color: var(--ifm-background-surface-color);
+}
+
+[data-theme='dark'] .note {
+  background-color: rgba(59, 130, 246, 0.1);
+}
+
+[data-theme='dark'] .note .calloutTitle,
+[data-theme='dark'] .note .calloutContent {
+  color: #93c5fd;
+}
+
+[data-theme='dark'] .tip {
+  background-color: rgba(16, 185, 129, 0.1);
+}
+
+[data-theme='dark'] .tip .calloutTitle,
+[data-theme='dark'] .tip .calloutContent {
+  color: #6ee7b7;
+}
+
+[data-theme='dark'] .warning {
+  background-color: rgba(245, 158, 11, 0.1);
+}
+
+[data-theme='dark'] .warning .calloutTitle,
+[data-theme='dark'] .warning .calloutContent {
+  color: #fbbf24;
+}
+
+[data-theme='dark'] .danger {
+  background-color: rgba(239, 68, 68, 0.1);
+}
+
+[data-theme='dark'] .danger .calloutTitle,
+[data-theme='dark'] .danger .calloutContent {
+  color: #fca5a5;
+}
+
+[data-theme='dark'] .info {
+  background-color: rgba(107, 114, 128, 0.1);
+}
+
+[data-theme='dark'] .info .calloutTitle,
+[data-theme='dark'] .info .calloutContent {
+  color: #d1d5db;
+}
