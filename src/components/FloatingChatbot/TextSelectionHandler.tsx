@@ -1,10 +1,12 @@
-import { useEffect } from 'react';
+import { useEffect } from "react";
 
 interface TextSelectionHandlerProps {
   onTextSelected: (text: string) => void;
 }
 
-export default function TextSelectionHandler({ onTextSelected }: TextSelectionHandlerProps): null {
+export default function TextSelectionHandler({
+  onTextSelected,
+}: TextSelectionHandlerProps): null {
   useEffect(() => {
     const handleContextMenu = (e: MouseEvent) => {
       const selection = window.getSelection();
@@ -13,14 +15,15 @@ export default function TextSelectionHandler({ onTextSelected }: TextSelectionHa
       if (selectedText && selectedText.length > 0) {
         // Check if the selection is within the documentation content
         const target = e.target as HTMLElement;
-        const isInDocContent = target.closest('article') || target.closest('.markdown');
+        const isInDocContent =
+          target.closest("article") || target.closest(".markdown");
 
         if (isInDocContent) {
           e.preventDefault();
 
           // Create custom context menu
-          const contextMenu = document.createElement('div');
-          contextMenu.className = 'chatbot-context-menu';
+          const contextMenu = document.createElement("div");
+          contextMenu.className = "chatbot-context-menu";
           contextMenu.innerHTML = `
             <div class="context-menu-item">
               <span class="context-menu-icon">🤖</span>
@@ -28,12 +31,12 @@ export default function TextSelectionHandler({ onTextSelected }: TextSelectionHa
             </div>
           `;
 
-          contextMenu.style.position = 'fixed';
+          contextMenu.style.position = "fixed";
           contextMenu.style.left = `${e.clientX}px`;
           contextMenu.style.top = `${e.clientY}px`;
-          contextMenu.style.zIndex = '10000';
+          contextMenu.style.zIndex = "10000";
 
-          contextMenu.addEventListener('click', () => {
+          contextMenu.addEventListener("click", () => {
             onTextSelected(selectedText);
             document.body.removeChild(contextMenu);
             selection?.removeAllRanges();
@@ -44,11 +47,11 @@ export default function TextSelectionHandler({ onTextSelected }: TextSelectionHa
             if (document.body.contains(contextMenu)) {
               document.body.removeChild(contextMenu);
             }
-            document.removeEventListener('click', removeMenu);
+            document.removeEventListener("click", removeMenu);
           };
 
           setTimeout(() => {
-            document.addEventListener('click', removeMenu);
+            document.addEventListener("click", removeMenu);
           }, 100);
 
           document.body.appendChild(contextMenu);
@@ -56,10 +59,10 @@ export default function TextSelectionHandler({ onTextSelected }: TextSelectionHa
       }
     };
 
-    document.addEventListener('contextmenu', handleContextMenu);
+    document.addEventListener("contextmenu", handleContextMenu);
 
     return () => {
-      document.removeEventListener('contextmenu', handleContextMenu);
+      document.removeEventListener("contextmenu", handleContextMenu);
     };
   }, [onTextSelected]);
 

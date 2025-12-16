@@ -6,11 +6,12 @@ require("dotenv").config({ path: path.join(__dirname, ".env") });
 
 const app = express();
 const PORT = process.env.PORT || 3008;
+app.set("trust proxy", 1);
 
 // CORS configuration
 app.use(
   cors({
-    origin: [
+    origin: process.env.CORS_ORIGINS?.split(",") || [
       "http://localhost:3000",
       "http://localhost:3002",
       "https://gurupak.github.io",
@@ -186,7 +187,6 @@ app.put("/api/user/profile", async (req, res) => {
 // Mount Better Auth handlers at root since basePath is empty
 app.all("*", async (req, res) => {
   try {
-    // Convert Express request to Better Auth format
     const request = new Request(
       `${req.protocol}://${req.get("host")}${req.originalUrl}`,
       {
@@ -207,14 +207,11 @@ app.all("*", async (req, res) => {
     });
 
     const body = await response.text();
-    if (body) {
-      res.send(body);
-    } else {
-      res.end();
-    }
-  } catch (error) {
-    console.error("Auth handler error:", error);
-    res.status(500).json({ error: "Internal server error" });
+    if (body) res.send(body);
+    else res.end();
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Auth error" });
   }
 });
 

@@ -42,8 +42,13 @@ class QueryResponse(BaseModel):
 
     session_id: str = Field(..., description="Session identifier")
     message: str = Field(..., description="Assistant response message")
-    chunks_retrieved: int = Field(..., description="Number of chunks retrieved")
-    query_type: QueryType = Field(..., description="Type of query processed")
+    chunks_retrieved: Optional[int] = Field(
+        None, description="Number of chunks retrieved (if known)"
+    )
+    query_type: Optional[str] = Field(None, description="Type of query processed")
+    response_id: Optional[str] = Field(
+        None, description="OpenAI Agents SDK response ID for conversation continuity"
+    )
 
     class Config:
         """Pydantic config."""

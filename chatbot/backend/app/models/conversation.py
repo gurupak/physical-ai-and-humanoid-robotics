@@ -28,6 +28,9 @@ class Conversation(BaseModel):
         description="Last activity timestamp",
     )
     is_active: bool = Field(default=True, description="Session active status")
+    previous_response_id: Optional[str] = Field(
+        default=None, description="OpenAI Agents SDK response ID for conversation continuity"
+    )
 
 
 class ConversationCreate(BaseModel):

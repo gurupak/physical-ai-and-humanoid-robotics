@@ -1,6 +1,12 @@
 """Main FastAPI application entry point."""
 
+import os
 from contextlib import asynccontextmanager
+
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
@@ -20,7 +26,7 @@ async def lifespan(app: FastAPI):
         app: FastAPI application instance
     """
     # Startup
-    print("🚀 Starting RAG Chatbot Backend...")
+    print("🚀 Starting RAG Chatbot Backend with OpenAI Agents SDK...")
 
     # Initialize database tables
     print("📊 Ensuring database tables exist...")
@@ -30,8 +36,8 @@ async def lifespan(app: FastAPI):
     print("🔍 Ensuring Qdrant collection exists...")
     await qdrant_service.ensure_collection_exists()
 
-    # Initialize AI agents
-    print("🤖 Initializing AI agents...")
+    # Initialize RAG service (agents are defined at import time with SDK)
+    print("🤖 Initializing RAG service with OpenAI Agents SDK...")
     await rag_service.initialize_agents()
 
     print("✅ Application startup complete!")
@@ -55,8 +61,10 @@ app = FastAPI(
 # Configure CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", "http://localhost:5173"],  # Frontend origins
-    allow_credentials=True,
+    allow_origins=os.getenv(
+        "CORS_ORIGINS",
+        "http://localhost:3000,http://localhost:5173,https://gregarious-tenderness-production-79e3.up.railway.app,https://gurupak.github.io",
+    ).split(","),  # Frontend origins
     allow_methods=["*"],
     allow_headers=["*"],
 )

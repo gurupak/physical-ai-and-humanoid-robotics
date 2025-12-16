@@ -38,7 +38,8 @@ class PostgresService:
                         user_id VARCHAR(255) NOT NULL,
                         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                         last_activity TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-                        is_active BOOLEAN DEFAULT TRUE
+                        is_active BOOLEAN DEFAULT TRUE,
+                        previous_response_id TEXT
                     )
                 """)
 
@@ -171,6 +172,27 @@ class PostgresService:
                     WHERE session_id = %s
                     """,
                     (session_id,),
+                )
+                conn.commit()
+
+    async def update_session_response_id(self, session_id: str, response_id: str) -> None:
+        """
+        Update session's previous response ID for OpenAI Agents SDK conversation continuity.
+
+        Args:
+            session_id: Session identifier
+            response_id: OpenAI Agents SDK response ID
+        """
+        with self.get_connection() as conn:
+            with conn.cursor() as cur:
+                cur.execute(
+                    """
+                    UPDATE conversation_sessions
+                    SET previous_response_id = %s,
+                        last_activity = CURRENT_TIMESTAMP
+                    WHERE session_id = %s
+                    """,
+                    (response_id, session_id),
                 )
                 conn.commit()
 

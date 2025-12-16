@@ -1,14 +1,13 @@
-"""AI agents for query handling and response generation."""
+"""AI agents using OpenAI Agents SDK for query handling and response generation."""
 
-from app.agents.book_qa import BookQAAgent, book_qa_agent
-from app.agents.selected_text import SelectedTextAgent, selected_text_agent
-from app.agents.triage import TriageAgent, triage_agent
+from app.agents.agent_definitions import (
+    book_qa_agent,
+    selected_text_agent,
+    triage_agent,
+)
 
 __all__ = [
-    "BookQAAgent",
-    "book_qa_agent",
-    "SelectedTextAgent",
-    "selected_text_agent",
-    "TriageAgent",
     "triage_agent",
+    "book_qa_agent",
+    "selected_text_agent",
 ]

@@ -107,6 +107,7 @@
     display: flex;
     align-items: center;
     gap: 12px;
+    flex: 1;
 }
 
 .headerIcon {
@@ -123,6 +124,33 @@
     margin: 0;
     font-size: 12px;
     opacity: 0.9;
+}
+
+.headerActions {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.newChatButton {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    padding: 0;
+}
+
+.newChatButton:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.05);
 }
 
 .closeButton {
@@ -188,7 +216,7 @@
 
 .welcomeMessage {
     text-align: center;
-    padding: 40px 20px;
+    padding: 30px 20px 10px;
     color: #666;
 }
 
@@ -196,6 +224,38 @@
     font-size: 20px;
     margin-bottom: 16px;
     color: #333;
+}
+
+.loadingHistory {
+    text-align: center;
+    padding: 10px 20px 20px;
+    color: #666;
+}
+
+.loadingHistory p {
+    margin-top: 8px;
+    font-size: 13px;
+    color: #667eea;
+    font-weight: 500;
+}
+
+.loadingSpinner {
+    width: 32px;
+    height: 32px;
+    margin: 0 auto;
+    border: 3px solid #f3f4f6;
+    border-top: 3px solid #667eea;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 .welcomeMessage p {
@@ -383,4 +443,19 @@
 .sendButton:disabled {
     opacity: 0.5;
     cursor: not-allowed;
+}
+
+.tooltipHint {
+    margin-top: 8px;
+    padding: 8px 12px;
+    background: #f0f9ff;
+    border-left: 3px solid #667eea;
+    border-radius: 4px;
+    font-size: 12px;
+    color: #334155;
+    line-height: 1.4;
+}
+
+.tooltipHint strong {
+    color: #667eea;
 }

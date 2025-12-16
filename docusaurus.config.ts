@@ -1,8 +1,16 @@
 import { themes as prismThemes } from "prism-react-renderer";
 import type { Config } from "@docusaurus/types";
 import type * as Preset from "@docusaurus/preset-classic";
+import { config as dotenvConfig } from "dotenv";
+
+// Load environment variables from .env file
+dotenvConfig();
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
+
+// Debug: Log environment variables
+console.log("VITE_AUTH_API_URL:", process.env.VITE_AUTH_API_URL);
+console.log("VITE_RAG_API_URL:", process.env.VITE_RAG_API_URL);
 
 const config: Config = {
   title: "Physical AI & Humanoid Robotics",
@@ -14,6 +22,19 @@ const config: Config = {
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: "/physical-ai-and-humanoid-robotics/",
+
+  // Custom fields for environment-specific configuration
+  customFields: {
+    authApiUrl:
+      process.env.VITE_AUTH_API_URL ||
+      "https://dynamic-courage-production.up.railway.app",
+    ragApiUrl:
+      process.env.VITE_RAG_API_URL ||
+      "https://gregarious-tenderness-production-79e3.up.railway.app",
+  },
+
+  // Add client modules to inject config into window
+  clientModules: [require.resolve("./src/clientModules/injectConfig.ts")],
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.

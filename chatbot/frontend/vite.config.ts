@@ -15,7 +15,9 @@ export default defineConfig({
     port: 5173,
     proxy: {
       "/api": {
-        target: "http://localhost:8000",
+        target:
+          process.env.VITE_API_PROXY_TARGET ||
+          "https://gregarious-tenderness-production-79e3.up.railway.app",
         changeOrigin: true,
       },
     },

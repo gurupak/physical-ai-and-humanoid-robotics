@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
-import { authClient } from "../lib/auth";
+import { useAuthClient } from "../lib/auth";
+import { useAuthApiUrl } from "../lib/config";
 
 interface ProfileData {
   firstName: string;
@@ -39,6 +40,8 @@ export const useAuth = () => {
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
+  const authClient = useAuthClient();
+  const authApiUrl = useAuthApiUrl();
   const [user, setUser] = useState<any>(null);
   const [session, setSession] = useState<any>(null);
   const [loading, setLoading] = useState(true);
@@ -111,7 +114,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
 
   const updateProfile = async (data: ProfileData) => {
     try {
-      const response = await fetch("http://localhost:3008/api/user/profile", {
+      const response = await fetch(`${authApiUrl}/api/user/profile`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
